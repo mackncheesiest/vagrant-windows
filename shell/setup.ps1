@@ -1,20 +1,23 @@
 chocolatey feature enable -n=allowGlobalConfirmation
 choco install jdk8 --force
-choco install maven
-choco install git
-choco install intellijidea-community
+#choco install maven
+#choco install git
+#choco install intellijidea-community
+choco install googlechrome
+choco install firefox
+choco install visualstudiocode
 
-if (!(Test-Path /Users/vagrant/.m2)) {
- mkdir C:\Users\vagrant\.m2
-}
-if (!(Test-Path /Users/vagrant/.ssh)) {
- mkdir C:\Users\vagrant\.ssh
-}
+#if (!(Test-Path /Users/vagrant/.m2)) {
+# mkdir C:\Users\vagrant\.m2
+#}
+#if (!(Test-Path /Users/vagrant/.ssh)) {
+# mkdir C:\Users\vagrant\.ssh
+#}
 
 # Copy maven settings
-cp C:\shares\.m2\settings*.xml C:\Users\vagrant\.m2\
+# cp C:\shares\.m2\settings*.xml C:\Users\vagrant\.m2\
 # Copy ssh keys
-cp C:\shares\.ssh\* C:\Users\vagrant\.ssh\
+# cp C:\shares\.ssh\* C:\Users\vagrant\.ssh\
 
 # Removed due to profile not working correctly
 # Add alias scripts to profile

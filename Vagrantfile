@@ -9,13 +9,12 @@ Vagrant.configure(2) do |config|
   config.vm.box = "opentable/win-2012r2-standard-amd64-nocm"
   config.vm.guest = :windows
   config.vm.communicator = "winrm"
-  config.vm.network "forwarded_port", guest: 3389, host: 3389
   config.vm.provider :virtualbox do |v|
-    v.memory = 4096
-    v.cpus = 2
+    v.memory = 6144 
+    v.cpus = 4 
+    v.customize ["modifyvm", :id, "--accelerate3d", "on", "--accelerate2dvideo", "on", "--vram", "256"]
   end
-  config.vm.synced_folder "~/.ssh", "/shares/.ssh"
-  config.vm.synced_folder "~/.m2", "/shares/.m2"
+  config.vm.synced_folder "~/Documents/VBoxSharedFolder", "/shares/VBoxSharedFolder"
 
   config.vm.provision "shell" do |s|
     s.privileged = true
